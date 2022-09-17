@@ -1,2 +1,2 @@
-# javaPropFileCompare
-Properties file compare utility.
+# Properties File Compare
+Properties file compare utility in Java.
