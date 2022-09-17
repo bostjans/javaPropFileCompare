@@ -1,0 +1,99 @@
+<project>
+    <!-- model version is always 4.0.0 for Maven 2.x POMs -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- project coordinates .. -->
+    <groupId>com.stupica.prog</groupId>
+    <artifactId>bPropCompare</artifactId>
+    <version>0.1.2</version>
+    <packaging>jar</packaging>
+    <name>bPropCompare</name>
+    <organization>
+        <name>developer.stupica.com</name>
+        <url>http://www.stupica.com</url>
+    </organization>
+    <url>http://developer.stupica.com/maven/</url>
+
+    <properties>
+        <java-version>1.8</java-version>
+        <maven.compiler.source>${java-version}</maven.compiler.source>
+        <maven.compiler.target>${java-version}</maven.compiler.target>
+
+        <!-- ID identifier - in settings.xml: servers -->
+        <project.scm.id>github</project.scm.id>
+    </properties>
+
+    <!-- library dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>com.stupica.base</groupId>
+            <artifactId>mainRunner</artifactId>
+            <version>[1.5,2)</version>
+        </dependency>
+        <!--
+        -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.stupica.propCompare.MainRun</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>${project.name}</finalName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.stupica.propCompare.MainRun</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <developers>
+        <developer>
+            <id>bostjanst</id>
+            <name>Bostjan Stupica</name>
+            <email>bostjan@stupica.com</email>
+            <url>http://www.stupica.com</url>
+            <organization>Developer404</organization>
+            <organizationUrl>http://www.stupica.com</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+                <role>admin</role>
+            </roles>
+            <timezone>Europe/Berlin</timezone>
+            <properties>
+                <picUrl>http://bostjan.dev404.net/about_me/myimg01.jpg</picUrl>
+            </properties>
+        </developer>
+    </developers>
+
+</project>
