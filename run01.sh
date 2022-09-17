@@ -15,8 +15,8 @@ VMparam="-Xms256m -Xmx256m"
 
 #java $VMparam -jar $PATH_PROG/bPropCompare.jar -v
 
-#java $VMparam -DPropFile1=$DIR_BASE_OLD/base/account/messages/messages_en.properties -DPropFile2=$DIR_BASE_NEW/smartis/account/messages/messages_en.properties -jar $PATH_PROG/bPropCompare.jar
-#java $VMparam -DPropFile1=$DIR_BASE_NEW/smartis/account/messages/messages_en.properties -DPropFile2=$DIR_BASE_OLD/base/account/messages/messages_en.properties -jar $PATH_PROG/bPropCompare.jar
+java $VMparam -DPropFile1=$DIR_BASE_OLD/a.properties -DPropFile2=$DIR_BASE_NEW/b.properties -jar $PATH_PROG/bPropCompare.jar
+java $VMparam -DPropFile1=$DIR_BASE_NEW/b.properties -DPropFile2=$DIR_BASE_OLD/a.properties -jar $PATH_PROG/bPropCompare.jar
 
 echo That_s it.
 
